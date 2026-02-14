@@ -1,79 +1,154 @@
-# MCP Architect Skill
+# MCP Architect
 
-Expert guidance for creating, configuring, troubleshooting, and managing MCP (Model Context Protocol) servers.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/mcp-architect?style=social)](https://github.com/YOUR_USERNAME/mcp-architect)
 
-## What This Skill Provides
+> Expert guide for creating, configuring, troubleshooting, and managing MCP (Model Context Protocol) servers
 
-- 🔧 **Troubleshooting**: Diagnose and fix common MCP issues
-- 📝 **Templates**: Ready-to-use Python and Node.js MCP templates
-- ⚙️ **Configuration**: Best practices for MCP configuration management
-- 🧪 **Testing**: Diagnostic tools and testing scripts
-- 📚 **Examples**: Real-world examples from actual implementations
+## 🎯 Why This Exists
 
-## Quick Start
+Antigravity has excellent MCP marketplace integration, but creating **custom MCPs** is challenging due to:
 
-To use this skill, simply reference it when working with MCPs:
+- ❌ Sparse documentation on MCP creation
+- ❌ Cryptic error messages
+- ❌ No troubleshooting guides
+- ❌ Complex authentication setup
+- ❌ No diagnostic tools
 
-```
-@mcp-architect I need to create a new MCP for [service]
-@mcp-architect My Google Drive MCP is not working
-@mcp-architect How do I configure OAuth for an MCP?
-```
+This skill solves these problems with **real-world examples** from actual troubleshooting sessions.
 
-## What's Included
+## ✨ What's Included
 
-### Main Documentation
+### 📚 Comprehensive Documentation
 
-- **SKILL.md**: Comprehensive guide covering all aspects of MCP development and management
+- **[SKILL.md](SKILL.md)**: Complete guide (10.8 KB) covering:
+  - Common issues & solutions
+  - Configuration patterns
+  - Python & Node.js templates
+  - Testing strategies
+  - Best practices
 
-### Examples
+### 🔧 Diagnostic Tools
 
-- **examples/README.md**: Real-world examples including:
+- **[diagnostic.sh](examples/diagnostic.sh)**: Automated testing script that:
+  - ✅ Validates JSON configuration
+  - ✅ Checks if commands exist
+  - ✅ Verifies npm packages
+  - ✅ Tests Python scripts and venvs
+  - ✅ Validates environment variables
+
+### 💡 Real-World Examples
+
+- **[examples/README.md](examples/README.md)**: Based on actual troubleshooting:
   - Google Drive MCP (OAuth authentication)
   - Apple Mail MCP (Python virtual environment)
   - GitHub MCP (Docker container)
   - Master registry pattern
-  - Troubleshooting scenarios
 
-### Tools
+## 🚀 Quick Start
 
-- **examples/diagnostic.sh**: Automated diagnostic script to test MCP configurations
+### Use as Antigravity Skill
 
-## Common Use Cases
+```bash
+# Reference the skill when working with MCPs
+@mcp-architect I need to create a new MCP for Slack
+@mcp-architect My Google Drive MCP is not working
+@mcp-architect How do I configure OAuth for an MCP?
+```
 
-### Creating a New MCP
+### Use Diagnostic Tool
 
-1. Choose Python or Node.js template from SKILL.md
+```bash
+# Test your MCP configuration
+./examples/diagnostic.sh /path/to/mcp_config.json
+```
+
+### Create a New MCP
+
+1. Choose a template from [SKILL.md](SKILL.md) (Python or Node.js)
 2. Implement your service integration
 3. Test with the diagnostic script
-4. Add to configuration
+4. Add to your configuration
 
-### Fixing a Broken MCP
+## 📖 Documentation
 
-1. Run the diagnostic script
-2. Check common issues in SKILL.md
-3. Apply the fix
-4. Verify with testing checklist
+- **[SKILL.md](SKILL.md)** - Main documentation with troubleshooting guides
+- **[examples/README.md](examples/README.md)** - Real-world examples
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute
+- **[ANTIGRAVITY_FEEDBACK.md](ANTIGRAVITY_FEEDBACK.md)** - Feedback for Antigravity team
+
+## 🎓 Common Use Cases
+
+### Troubleshooting a Broken MCP
+
+```bash
+# Run diagnostic
+./examples/diagnostic.sh ~/.gemini/antigravity/mcp_config.json
+
+# Check common issues in SKILL.md
+# Apply the fix
+# Verify with testing checklist
+```
+
+### Creating a Custom MCP
+
+See templates in [SKILL.md](SKILL.md):
+
+- Python MCP template (async implementation)
+- Node.js MCP template (TypeScript-based)
 
 ### Managing Multiple MCPs
 
-1. Use the master registry pattern
-2. Keep configurations consistent
-3. Use environment variables for credentials
-4. Test regularly with diagnostic tools
+Use the master registry pattern from [examples/README.md](examples/README.md) to manage MCPs across multiple tools.
 
-## Key Learnings
+## 🔑 Key Learnings
 
-This skill is based on real-world experience troubleshooting and configuring MCPs:
+Based on real troubleshooting experience:
 
-- ✅ Always use absolute paths
-- ✅ Create dedicated virtual environments for Python MCPs
-- ✅ Use environment variables for credentials
-- ✅ Verify package names before configuration
-- ✅ Test MCPs manually before adding to config
-- ✅ Validate JSON configuration files
-- ✅ Document authentication requirements
+1. ✅ **Always use absolute paths** - Relative paths cause issues
+2. ✅ **Verify package names** - Check npm/PyPI before configuring
+3. ✅ **Use dedicated venvs** - Isolate Python MCP dependencies
+4. ✅ **Environment variables for credentials** - Never hardcode secrets
+5. ✅ **Test manually first** - Verify MCPs work before adding to config
+6. ✅ **Validate JSON** - Use `jq` to catch syntax errors
+7. ✅ **Document authentication** - OAuth flows need clear instructions
+8. ✅ **Master registry pattern** - Manage MCPs across multiple tools
 
-## License
+## 🤝 Contributing
 
-MIT License - See LICENSE.txt for details
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Ways to contribute**:
+
+- 🐛 Report issues you've encountered
+- 💡 Share your MCP examples
+- 📝 Improve documentation
+- 🔧 Enhance diagnostic tools
+
+## 📜 License
+
+MIT License - See [LICENSE.txt](LICENSE.txt) for details
+
+## 🙏 Acknowledgments
+
+Created from real-world experience troubleshooting MCPs for:
+
+- Google Drive (OAuth authentication)
+- Apple Mail (Python venv setup)
+- Apple Photos (Python implementation)
+- Brave Search (API key management)
+- CloudRun (GCP integration)
+- GitHub (Docker container)
+- Google Docs (Python venv)
+- File Systems (Node.js)
+
+## 📞 Support
+
+- 📖 Read the [SKILL.md](SKILL.md) documentation
+- 🔍 Check [examples/README.md](examples/README.md) for real-world cases
+- 🐛 Open an issue for bugs or questions
+- 💬 Start a discussion for general questions
+
+---
+
+**Made with ❤️ to help the MCP community**
