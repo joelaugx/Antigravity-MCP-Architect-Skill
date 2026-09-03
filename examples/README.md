@@ -159,7 +159,9 @@ There is no single official server; three actively maintained community servers 
 |---|---|---|---|---|
 | [`elliotttate/finalcutpro-mcp`](https://github.com/elliotttate/finalcutpro-mcp) | Node.js, build from source | Live control via AppleScript/JXA | 99 tools | Driving a running FCP session directly (timeline edits, playback, color grading, exports) |
 | [`DareDev256/fcp-mcp-server`](https://github.com/DareDev256/fcp-mcp-server) | Python, PyPI (`fcp-mcp-server`) | FCPXML file editing, with optional live push | 7 grouped tools (62 operations) | Batch/offline editing of exported FCPXML (transcripts, markers, diagnostics) without needing FCP open |
-| [`dreliq9/fcp-mcp`](https://github.com/dreliq9/fcp-mcp) | Python, PyPI (`fcp-mcp`) | Hybrid: FCPXML engine + live AppleScript control + media analysis | 94 tools | Wanting both approaches (and media/QC analysis via ffprobe) in one server |
+| [`dreliq9/fcp-mcp`](https://github.com/dreliq9/fcp-mcp) ⭐ | Python, PyPI (`fcp-mcp`) | Hybrid: FCPXML engine + live AppleScript control + media analysis | up to 94 tools (profile-based) | **Recommended default** — one install covers both approaches plus QC/media analysis via ffprobe |
+
+⭐ `fcp-mcp` is the most complete of the three and the simplest single install if you're not sure which approach you need — it was co-developed by its author (Adam Steen) together with Claude (Anthropic), and is the one to reach for first if you already have an FCP license sitting unused.
 
 ### Option 1: Live control (`finalcutpro-mcp`)
 
@@ -208,13 +210,22 @@ uvx fcp-mcp-server
 
 **Workflow**: Export XML from Final Cut Pro (`File → Export XML…`) → let the MCP inspect/edit the FCPXML → import the result back into FCP, or use its `push_to_fcp` tool to send it straight into the running app.
 
-### Option 3: Hybrid (`fcp-mcp`)
+### Option 3: Hybrid (`fcp-mcp`) — recommended default
 
-**Requirements**: macOS 15.6+, Python 3.10+, `ffmpeg` (`brew install ffmpeg`) for media analysis.
+**Requirements**: macOS 15.6+, Python 3.10+, `ffmpeg` on `$PATH` (`brew install ffmpeg`) for media analysis tools.
 
 ```bash
+# 1. Install (pipx keeps it isolated from other Python packages)
 pipx install fcp-mcp
+
+# 2. Register with Claude Code directly (skips hand-editing JSON)
+claude mcp add-json fcp '{"type":"stdio","command":"fcp-mcp"}' --scope user
+
+# 3. Verify the install and macOS/FCP permissions
+fcp-mcp doctor
 ```
+
+Or add it manually to `claude_desktop_config.json` / `mcp_config.json`:
 
 ```json
 {
@@ -225,7 +236,7 @@ pipx install fcp-mcp
 }
 ```
 
-Verify with `fcp-mcp doctor`.
+The tool catalog ships in **profiles** so you only load what you need: `inspect` (30 tools, read-only analysis), `workflow` (34 tools, default), `edit` (75 tools), and `full` (94 tools — everything, including flash-frame/gap detection, beat/rhythm analysis, EDL/XML export to Resolve or Premiere, and parametric character rigs).
 
 ### Common Issues
 
