@@ -43,6 +43,7 @@ This skill solves these problems with **real-world examples** from actual troubl
   - Google Drive MCP (OAuth authentication)
   - Apple Mail MCP (Python virtual environment)
   - GitHub MCP (Docker container)
+  - Final Cut Pro MCP (AppleScript live control + FCPXML editing, macOS only)
   - Master registry pattern
 
 ## 🚀 Quick Start
@@ -138,6 +139,7 @@ Created from real-world experience troubleshooting MCPs for:
 - Apple Photos (Python implementation)
 - Brave Search (API key management)
 - CloudRun (GCP integration)
+- Final Cut Pro (AppleScript automation, FCPXML editing)
 - GitHub (Docker container)
 - Google Docs (Python venv)
 - File Systems (Node.js)
